@@ -297,6 +297,11 @@ class TranslateClient
         // Rethrow exceptions
         try {
             $responseArray = $this->getResponse($data);
+            
+            // Returns response right away if is string
+            if (is_string($responseArray)) {
+                return $responseArray;
+            }
         } catch (Exception $e) {
             throw $e;
         }
